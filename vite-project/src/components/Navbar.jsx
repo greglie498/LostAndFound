@@ -7,7 +7,7 @@ export default function Navigation(){
     return(
         <nav className='navbar'> 
             <div className='logoHolder'>
-                <img src={logo1} alt="lost and found" className='logo1' />
+                <img src={logo1} alt="lost and found logo" className='logo1' />
 
             </div>
 

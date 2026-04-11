@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useNavigate } from "react-router-dom";
 
-function SignupForm(){
+function Signup(){
 
     const navigate = useNavigate();
 
@@ -60,4 +60,4 @@ function SignupForm(){
     );
 }
 
-export default function SignupForm;
+export default Signup;

@@ -1,11 +1,33 @@
 const express = require('express');
+const  cors = require("cors")
 
 const mongoose = require('mongoose');
 require('dotenv'). config();
+const connectDB = require("./config/db")
 
 const app = express();
 
-const port= 5000;
+//connect to MongoDB
+connectDB();
+
+// import routes
+const signRoute = require("./routes/signup");
+const loginRoute = require("./routes/login");
+
+//Middleware
+app.use(cors());
+app.use(express.json());
+
+// connect routes
+app.use("/api/signup", signRoute);
+app.use("/api/login", loginRoute);
+
+// test route
+app.get("/", (req, res) => {
+    res.send("API is running");
+})
+
+const port= 4000;
 
 app.get('/', (req, res)=> {
 

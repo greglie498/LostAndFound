@@ -1,30 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import {Routes, Route, BrowserRouter} from 'react-router-dom'
-import './App.css'
-import Navigation from './components/Navbar'
-import Banner from './components/Banner'
-import Footer from './components/Footer'
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import './App.css';
+import Navigation from './components/Navbar';
+import Banner from './components/Banner';
+import ServicesSection from './components/Servicessection';
+import Footer from './components/Footer';
+import Signup from './components/LoginArea';
+import Login from './components/Login'
+import ProtectedRoute from './components/ProtectedRoute';
+import UserDashboard from './components/UserDashboard';
 
 function App() {
-
-
   return (
-    <>
-    <div className='appLayout'>
-    <Navigation />
+    <BrowserRouter>
+      <div className='appLayout'>
+        <Navigation />
 
-    <main className='pageContent'>
-      <Routes>
-    <Route path="/" element={<Banner />} />
-    </Routes>
-    </main>
-    <Footer />
-    </div>
-    </>
-    
-  )
+        <main className='pageContent'>
+          <Routes>
+            <Route path="/" element={<Banner />} />
+            <Route path="/aboutus" element={<ServicesSection />} />
+            <Route path='/signup' element={<Signup/>} />
+            <Route path="/login" element={<Login />} />
+
+            <Route 
+            path="*\user-dashboard" 
+            element={
+              <ProtectedRoute>
+                <UserDashboard />
+              </ProtectedRoute>
+            } />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
