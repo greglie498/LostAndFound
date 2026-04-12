@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom";
+import { Outlet, NavLink, useNavigate } from "react-router-dom";
+import "./styling/Dashboard.css";
 
 function UserDashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -10,16 +11,40 @@ function UserDashboard() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>User Dashboard</h1>
+    <div className="dashboardContainer">
 
-      {user ? (
-        <h2>Welcome {user.username}</h2>
-      ) : (
-        <h2>No user logged in</h2>
-      )}
+      {/* ── SIDEBAR ── */}
+      <aside className="sidebar">
+        <h2 className="sidebarTitle">Lost & Found</h2>
+        <p className="welcomeText">
+          Welcome, {user?.username || "Guest"}
+        </p>
 
-      <button onClick={handleLogout}>Logout</button>
+        <nav className="sidebarMenu">
+          <NavLink to="report" className="sidebarLink">
+            Report Found Item
+          </NavLink>
+          <NavLink to="view" className="sidebarLink">
+            View Lost Items
+          </NavLink>
+          <NavLink to="my-reports" className="sidebarLink"> 
+            My Reports
+          </NavLink>
+          <NavLink to="volunteer" className="sidebarLink">
+            Register as Volunteer
+          </NavLink>
+        </nav>
+
+        <button className="logoutBtn" onClick={handleLogout}>
+          Logout
+        </button>
+      </aside>
+
+      {/* ── MAIN CONTENT — filled by child routes via Outlet ── */}
+      <main className="dashboardMain">
+        <Outlet />
+      </main>
+
     </div>
   );
 }

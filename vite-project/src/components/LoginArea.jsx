@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useNavigate } from "react-router-dom";
+import {useNavigate, Link } from "react-router-dom";
 
 function Signup(){
 
@@ -7,13 +7,13 @@ function Signup(){
 
 
     const[username, setUsername] = useState("");
-    const[password, setPassword] = useStae("");
+    const[password, setPassword] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:5000/api/signup", {
+            const response = await fetch("http://localhost:4000/api/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -39,7 +39,7 @@ function Signup(){
     return(
         <div className="signupContainer">
             <div className="signupBox">
-
+                <h2>Sign Up</h2> 
                 <form onSubmit={handleSubmit}>
                     <input
                     type="text"
@@ -55,6 +55,10 @@ function Signup(){
 
                     <button type="submit">Sign Up</button>
                 </form>
+                <p style={{ textAlign: "center", marginTop: "16px", fontSize: "0.9rem" }}>
+                    Already have an account?{" "}
+                    <Link to="/login" style={{ color: "#007bff", fontWeight: "600" }}>Login</Link>
+                </p>
             </div>
         </div>
     );

@@ -11,7 +11,7 @@ const app = express();
 connectDB();
 
 // import routes
-const signRoute = require("./routes/signup");
+const signupRoute = require("./routes/signup");
 const loginRoute = require("./routes/login");
 
 //Middleware
@@ -19,15 +19,22 @@ app.use(cors());
 app.use(express.json());
 
 // connect routes
-app.use("/api/signup", signRoute);
+app.use("/api/signup", signupRoute);
 app.use("/api/login", loginRoute);
-
+app.use("/api/lostItems", require("./routes/lostItems"));
+app.use("/api/volunteer", require("./routes/volunteer"));
 // test route
 app.get("/", (req, res) => {
     res.send("API is running");
 })
 
-const port= 4000;
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+    console.log("This is what we do");
+    console.log("Here is our Telephone number and email address");
+})
 
 app.get('/', (req, res)=> {
 
@@ -53,13 +60,5 @@ app.get('/page', (req, res)=> {
 
 });
 
-mongoose.connect(process.env.MONGO_URL)
-.then(()=> console.log("MonngoDB connected"))
-.catch(err => console.log(err));
 
-app.listen(port, ()=>{
 
-    console.log("Server is running on port 5000");
-    console.log("This is what we do");
-    console.log("Here is our Telephone number and email address");
-})

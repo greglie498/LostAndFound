@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
     const[username, setUsername] = useState("");
@@ -42,29 +42,34 @@ function Login() {
     }
   };
 
-  return(
-    <div className="loginContainer">
-        <div className="loginbox">
-            <h2>Login
-                <form onSubmit={handleSubmit}>
-                    <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    />
+  return (
+  <div className="loginContainer">
+    <div className="loginBox">
+      <h2>Login</h2>
+      {message && <p style={{color: "red", textAlign: "center"}}>{message}</p>}
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Login</button>
+      </form>
+      <p style={{ textAlign: "center", marginTop: "16px", fontSize: "0.9rem" }}>
+        Don't have an account?{" "}
+        <Link to="/signup" style={{ color: "#007bff", fontWeight: "600" }}>Sign Up</Link>
+      </p>
 
-                     <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    />
-
-                    <button type="submit">Login</button>
-                </form>
-            </h2>
-        </div>
     </div>
-  )
+  </div>
+);
 }
+
+export default Login;
