@@ -1,17 +1,17 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
-import Navigation      from './components/Navbar';
-import Banner          from './components/Banner';
-import Footer          from './components/Footer';
-import Signup          from './components/LoginArea';
-import Login           from './components/Login';
-import AboutUs         from './components/AboutUs';     
-import Contact         from './components/Contact';    
-import ProtectedRoute  from './components/ProtectedRoute';
-import UserDashboard   from './components/UserDashboard';
-import ReportLostItem  from './components/ReportLostItems';
-import ViewLostItems   from './components/ViewLostItems';
-import MyReports from './components/MyReports';
+import Navigation        from './components/Navbar';
+import Banner            from './components/Banner';
+import Footer            from './components/Footer';
+import Signup            from './components/LoginArea';
+import Login             from './components/Login';
+import AboutUs           from './components/AboutUs';     
+import Contact           from './components/Contact';    
+import ProtectedRoute    from './components/ProtectedRoute';
+import UserDashboard     from './components/UserDashboard';
+import ReportLostItem    from './components/ReportLostItems';
+import ViewLostItems     from './components/ViewLostItems';
+import MyReports         from './components/MyReports';
 import RegisterVolunteer from './components/Volunteer';
 
 function App() {

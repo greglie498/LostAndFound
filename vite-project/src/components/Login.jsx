@@ -6,7 +6,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
 
-    const navigate = useNavigate();  //for redirect
+    const navigate = useNavigate();  
 
     const handleSubmit = async (e) => {
     e.preventDefault();

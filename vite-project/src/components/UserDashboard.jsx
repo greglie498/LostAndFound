@@ -40,7 +40,7 @@ function UserDashboard() {
         </button>
       </aside>
 
-      {/* ── MAIN CONTENT — filled by child routes via Outlet ── */}
+      
       <main className="dashboardMain">
         <Outlet />
       </main>

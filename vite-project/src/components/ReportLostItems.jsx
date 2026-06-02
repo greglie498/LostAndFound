@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./styling/Dashboard.css";
 
 const ReportLostItem = () => {
-  const user = JSON.parse(localStorage.getItem("user"));  // ← get logged in user
+  const user = JSON.parse(localStorage.getItem("user"));  
 
   const [formData, setFormData] = useState({
     itemName: "", description: "", location: "", contact: "",
@@ -22,18 +22,18 @@ const ReportLostItem = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          reportedBy: user?.username     // ← send username
+          reportedBy: user?.username    
         }),
       });
       const data = await response.json();
       if (response.ok) {
-        setMessage("✅ Item reported successfully!");
+        setMessage(" Item reported successfully!");
         setFormData({ itemName: "", description: "", location: "", contact: "" });
       } else {
-        setMessage(`❌ ${data.message}`);
+        setMessage(` ${data.message}`);
       }
     } catch (error) {
-      setMessage("❌ Server error.");
+      setMessage(" Server error.");
     }
   };
 

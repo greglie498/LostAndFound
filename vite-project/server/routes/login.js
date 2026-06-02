@@ -12,7 +12,6 @@ router.post("/", async (req, res) => {
       return res.status(404).json({ success: false, message: "User not found" });
     }
 
-    // ✅ Move logs HERE — inside the function where foundUser exists
     console.log("Stored password:", foundUser.password);
     console.log("Is hashed:", foundUser.password.startsWith("$2b$"));
 

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");  // ← this line is missing!
+const mongoose = require("mongoose");  
 
 const connectDB = async () => {
   try {

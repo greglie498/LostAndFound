@@ -24,9 +24,9 @@ const ViewLostItems = () => {
             console.error(error);
             setMessage("Server error.");
         }
-    };                        // ← fetchItems ends HERE
+    };                        
 
-    // ✅ return is OUTSIDE fetchItems, inside the component
+    
     return (
         <div>
             <h2>Lost Items</h2>
