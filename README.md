@@ -214,7 +214,7 @@ This project demonstrates:
 
 # Author
 
-**Greglie**
+**Elie Greg Banga-Bothy**
 
 GitHub:  
 https://github.com/greglie498
